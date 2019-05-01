@@ -1,6 +1,6 @@
-# jumscms
+# JumsCMS
 
-> A Vue.js project
+> Breakthrough cms written in javascript(Vue.js and Express)
 
 ## Build Setup
 
