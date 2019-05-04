@@ -9,31 +9,31 @@
         Breakthrough CMS written in JavaScript
       </h2>
       <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          class="button--green"
-        >Documentation</a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          class="button--grey"
-        >GitHub</a>
+        <a href="https://nuxtjs.org/" target="_blank" class="button--green">Documentation</a>
+        <a href="https://github.com/nuxt/nuxt.js" target="_blank" class="button--grey">GitHub</a>
       </div>
     </div>
   </section>
 </template>
-
 <script>
+import Meta from '~/assets/mixins/meta'
 import Logo from '~/components/Logo.vue'
 
 export default {
+  mixins: [Meta],
   components: {
     Logo
-  }
+  },
+  data() {
+    return {
+      meta: {
+        title: '新しいCMS作ってみた', // ←これだけでもなんとかなる。
+      },
+    }
+  },
 }
-</script>
 
+</script>
 <style>
 .container {
   margin: 0 auto;
@@ -65,4 +65,5 @@ export default {
 .links {
   padding-top: 15px;
 }
+
 </style>
