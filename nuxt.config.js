@@ -6,7 +6,7 @@ const jsonData = JSON.parse(fs.readFileSync('src/assets/json/data.json'))
 const baseName = process.env.BASE_NAME || 'JumsCMS'
 const baseDesc = process.env.BASE_DISC || 'Breakthrough CMS written in JavaScript.'
 const baseUrl = process.env.BASE_URL || 'http://localhost:3000'
-const baseOgp = process.env.BASE_OGP || '/lib/img/ogp'
+const baseOgp = process.env.BASE_OGP || 'https://placeimg.com/1200/630/tech'
 const baseDir = process.env.BASE_DIR || '/'
 
 export default {
@@ -37,7 +37,7 @@ export default {
       { hid: 'og:url', property: 'og:url', content: baseUrl },
       { hid: 'og:title', property: 'og:title', content: baseName },
       { hid: 'og:description', property: 'og:description', content: baseDesc },
-      { hid: 'og:image', property: 'og:image', content: `${baseOgp}/common.jpg` },
+      { hid: 'og:image', property: 'og:image', content: `${baseOgp}` },
       { name: 'twitter:card', content: 'summary' },
       { name: 'twitter:site', content: '@JumsCMS' },
     ],
