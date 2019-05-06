@@ -7,7 +7,7 @@
           <div class="background_white"></div>
           <div class="background_white"></div>
         </div>
-        <div class="title">Title</div>
+        <div class="title">TITLE</div>
         <div class="search">検索</div>
       </div>
       <div class="category_list">
@@ -33,32 +33,34 @@
     </header>
     <main>
       <div class="futured_erea background_darkblue">
-        <div class="slides" ref="slides" v-for="(element, index) in json" v-if="element.futured">
-          <div class="thumbnail">
-            <div class="navigation navigation_left color_white">
-              < </div> <div class="title color_white">
+          <div class="slides" ref="slides" v-for="(element, index) in json" v-if="element.futured" :key="element.id">
+            <div class="thumbnail">
+              <div class="navigation navigation_left color_white">
+                ←
+              </div>
+              <div class="title color_white">
                 {{element.title}}
+              </div>
+              <div @click="SlidePusher" class="navigation navigation_right color_white">
+                →
+              </div>
+              <img :src="element.image">
             </div>
-            <div class="navigation navigation_right color_white">
-              >
+            <div class="tags">
+              <div class="category_l color_black background_white" v-show="element.futured">
+                Futured
+              </div>
+              <div class="category_l color_white background_skyblue" v-show="element.published">
+                {{element.published}}
+              </div>
+              <div class="category_l color_white background_blue" v-show="element.tag">
+                {{element.tag}}
+              </div>
+              <nuxt-link :to="{path :'/'+element.id}" class="category_l_read color_white background_pink" v-show="element.tag">
+                続きを読む
+              </nuxt-link>
             </div>
-            <img :src="element.image">
           </div>
-          <div class="tags">
-            <div class="category_l color_black background_white" v-show="element.futured">
-              Futured
-            </div>
-            <div class="category_l color_white background_skyblue" v-show="element.published">
-              {{element.published}}
-            </div>
-            <div class="category_l color_white background_blue" v-show="element.tag">
-              {{element.tag}}
-            </div>
-            <div class="category_l_read color_white background_pink" v-show="element.tag">
-              続きを読む
-            </div>
-          </div>
-        </div>
       </div>
       <div class="posts_erea background_black">
         <div class="posts" v-for="(element, index) in json">
@@ -74,16 +76,24 @@
             </div>
             <img :src="element.image">
           </div>
-          <div class="title color_white">
+          <nuxt-link :to="{path :''+element.id}" class="title color_white">
             {{element.title}}
-          </div>
+          </nuxt-link>
         </div>
       </div>
+      </transition>
     </main>
   </section>
 </template>
 <script>
 export default {
+  data() {
+    return {
+      nowSlide: 0,
+      SlideInterval: 5000,
+      intervalId: undefined
+    }
+  },
   asyncData() {
     return { json: process.env.jsonData }
   },
@@ -92,15 +102,40 @@ export default {
     this.Slider();
   },
   methods: {
-    Slider: function() {
+    Slider() {
       var SlideList = this.$refs.slides;
       SlideList[0].style.display = 'block';
+      this.intervalId = setInterval(this.SlidePusher, this.SlideInterval)
+    },
+    SlidePusher() {
+      var SlideList = this.$refs.slides;
+      if (this.nowSlide < SlideList.length - 1) {
+        this.nowSlide = this.nowSlide + 1;
+      } else {
+        this.nowSlide = 0;
+      }
     }
+  },
+  watch: {
+    nowSlide: function(nowval, oldval) {
+      var SlideList = this.$refs.slides;
+      console.log(nowval, oldval);
+      SlideList[nowval].style.display = 'block';
+      SlideList[oldval].style.display = 'none';
+    }
+  },
+  beforeDestroy() {
+    console.log('clearInterval');
+    clearInterval(this.intervalId);
   }
 }
 
 </script>
-<style>
+<style scoped>
+a {
+  text-decoration: none;
+}
+
 .main {
   margin: 0 auto;
   min-height: 100vh;
@@ -225,7 +260,7 @@ main>.futured_erea>.slides>.thumbnail>.navigation_right {
 main>.futured_erea>.slides>.tags {
   margin-left: 10px;
   margin-top: 10px;
-  width: calc(100% - 40px);  
+  width: calc(100% - 40px);
   display: flex;
   justify-content: space-between;
 }
@@ -289,7 +324,6 @@ main>.posts_erea>.posts>.title {
   font-size: 14px;
   line-height: 2;
 }
-
 .category_m {
   height: 20px;
   width: 80px;
