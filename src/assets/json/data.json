@@ -1,14 +1,14 @@
 [
 {
   "id": 5,
-  "title": "Building JS apps with Nuxt.js",
-  "summary": "Get introduced to Nuxt.js, and build great SSR Apps with Vue.js.",
+  "title": "Nuxt.jsでブログのテンプレート書いてみた",
+  "summary": "Nuxt.jsを使えば簡単に実装することができます。",
   "content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>",
   "author": "Jane Doe",
   "published": "2019.5.3",
   "image": "/images/arch.jpg",
   "tag": "レビュー",
-  "futured": false
+  "featured": true
 },
 {
   "id": 4,
@@ -19,7 +19,7 @@
   "published": "2019.5.2",
   "image": "/images/bill.jpg",
   "tag": "ニュース",
-  "futured": true
+  "featured": false
 },
 {
   "id": 3,
@@ -30,7 +30,7 @@
   "published": "2019.5.1",
   "image": "/images/emo.jpg",
   "tag": "ガジェット",
-  "futured": false
+  "featured": false
 },
 {
   "id": 2,
@@ -41,7 +41,7 @@
   "published": "2019.4.2",
   "image": "/images/road.jpg",
   "tag": "ゲーム",
-  "futured": true
+  "featured": false
 },
 {
   "id": 1,
@@ -52,5 +52,16 @@
   "published": "2019.4.1",
   "image": "/images/book.jpg",
   "tag": "テクノロジ",
-  "futured": true
+  "featured": true
+},
+{
+  "id": 0,
+  "title": "JumsCMSについて",
+  "summary": "JumsCMSについて紹介します。",
+  "content": "<h1>JumsCMS</h1><p>このCMSは、<li>シンプル</li><li>軽量</li><li>カスタマイズ性</li>を目指して開発されました。</p><h2>主な特徴</h2><p>シンプルで、軽量、カスタマイズ性が高いところです。</p>",
+  "author": "karuhi",
+  "published": "2019.4.1",
+  "image": "/images/book.jpg",
+  "tag": "ニュース",
+  "featured": true
 }]

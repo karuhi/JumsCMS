@@ -3,18 +3,21 @@
     <nuxt />
   </div>
 </template>
-
 <style>
 html {
-  font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
-    Roboto, 'Helvetica Neue', Arial, sans-serif;
-  font-size: 16px;
+  font-family: 'Cabin', 'Noto Sans JP', Roboto, 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    Arial, sans-serif;
+  font-size: 18px;
   word-spacing: 1px;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
+  margin: 0 auto;
+  min-height: 100vh;
+  justify-content: center;
+  text-align: center;
 }
 
 *,
@@ -24,32 +27,74 @@ html {
   margin: 0;
 }
 
-.button--green {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #3b8070;
-  color: #3b8070;
-  text-decoration: none;
-  padding: 10px 30px;
+.color_white {
+  color: #FFFAFF;
 }
 
-.button--green:hover {
-  color: #fff;
-  background-color: #3b8070;
+.color_black {
+  color: #1E1B18;
 }
 
-.button--grey {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #35495e;
-  color: #35495e;
-  text-decoration: none;
-  padding: 10px 30px;
-  margin-left: 15px;
+.color_pink {
+  color: #D8315B;
 }
 
-.button--grey:hover {
-  color: #fff;
-  background-color: #35495e;
+.color_blue {
+  color: #0A2463;
+}
+
+.color_skyblue {
+  color: #3E92CC;
+}
+
+.background_white {
+  background-color: #FFFAFF;
+}
+
+.background_black {
+  background-color: #1E1B18;
+}
+
+.background_pink {
+  background-color: #D8315B;
+}
+
+.background_blue {
+  background-color: #0A2463;
+}
+
+.background_darkblue {
+  background-color: #222E50;
+}
+
+.background_skyblue {
+  background-color: #3E92CC;
+}
+.category_m {
+  height: 20px;
+  width: 80px;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.category_l {
+  height: 30px;
+  width: 80px;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: bold;
+  box-shadow: 3px 3px 3px rgba(30, 27, 24, 0.7);
+  line-height: 2;
+}
+
+.category_l_read {
+  height: 30px;
+  width: 100px;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: bold;
+  box-shadow: 3px 3px 3px rgba(30, 27, 24, 0.7);
+  line-height: 2;
 }
 </style>

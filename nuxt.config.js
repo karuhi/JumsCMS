@@ -66,8 +66,13 @@ export default {
    */
   modules: [
     '@nuxtjs/pwa',
+    'nuxt-webfontloader',
   ],
-
+  webfontloader: {
+    google: {
+      families: ['Noto+Sans+JP','Cabin']
+    }
+  },
   /*
    ** Build configuration
    */
