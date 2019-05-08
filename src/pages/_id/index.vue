@@ -55,7 +55,7 @@ export default {
       });
       var path = location.pathname;
       path = path.substr(1);
-      this.jsonData = json[path - 1];
+      this.jsonData = json[path];
     }
   }
 }

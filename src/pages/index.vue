@@ -1,6 +1,6 @@
 <template>
   <section class="main">
-    <Header></Header>
+    <Header :json="json"></Header>
     <main>
       <div class="futured_erea background_darkblue">
           <div class="slides" ref="slides" v-for="(element, index) in json" v-if="element.featured" :key="element.id">
@@ -33,7 +33,6 @@
           </div>
       </div>
       <div class="posts_erea background_black">
-        <h1 class="color_white" style="border-bottom: dashed; width: 150px; margin: 0 auto; padding-top: 10px;margin-bottom: 10px;">最新の投稿</h1>
         <div class="posts" v-for="(element, index) in json">
           <div class="thumbnail">
             <div class="category_m color_black background_white" v-show="element.featured">
@@ -73,7 +72,6 @@ export default {
     return { json: process.env.jsonData }
   },
   mounted() {
-    console.log(this.json);
     this.Slider();
   },
   methods: {
